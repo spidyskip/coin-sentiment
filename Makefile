@@ -6,7 +6,7 @@ test:
 		#python3 -m pytest -vv --cov=main --cov=greeting tests
 
 format:
-		black *.py api/coingecko/*.py
+		black *.py packages/coingecko/*.py
 
 lint:
 		pylint --disable=R,C main.py
