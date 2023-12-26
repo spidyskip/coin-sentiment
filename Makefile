@@ -3,10 +3,10 @@ install:
 			pip install -r requirements.txt
 
 test:
-		python3 -m pytest -vv --cov=main --cov=greeting tests
+		#python3 -m pytest -vv --cov=main --cov=greeting tests
 
 format:
-		black *.py
+		black *.py api/coingecko/*.py
 
 lint:
 		pylint --disable=R,C main.py

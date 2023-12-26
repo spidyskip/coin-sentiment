@@ -1,5 +1,8 @@
+from api.coingecko.price import get_price
+
+
 def main():
-    return "Ready"
+    get_price(ids="solana", vs_currencies="eur")
 
 
 if __name__ == "__main__":
