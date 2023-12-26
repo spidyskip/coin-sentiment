@@ -1,5 +1,6 @@
-# python-project-template
-Python project template
+# coin-sentiment
+
+Colelct posts from subreddit about crypto and apply sentiment analysis
 
 ## Setup venv 
 
