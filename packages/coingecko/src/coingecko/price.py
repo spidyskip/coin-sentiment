@@ -72,6 +72,7 @@ def get_trending():
         coin_data = []
         for coin in data.get("coins", []):
             coin_item = coin.get("item", {})
+            price_data = coin_item.get("data", {})
             coin_data.append(
                 {
                     "id": coin_item.get("id", ""),
@@ -79,6 +80,7 @@ def get_trending():
                     "symbol": coin_item.get("symbol", ""),
                     "market_cap_rank": coin_item.get("market_cap_rank", 0),
                     "score": coin_item.get("score", 0),
+                    "price_usd": price_data.get("price", 0)
                 }
             )
         # Create a DataFrame from the extracted data

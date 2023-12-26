@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Price Checker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+<img id="logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="Crypto Logo">
+
+<h1>Crypto Price Checker</h1>
+
+<label for="cryptoInput">Enter Coin Symbol:</label>
+<input type="text" id="cryptoInput" placeholder="e.g., bitcoin" />
+<button onclick="getCryptoPrice()">Get Price</button>
+
+<p id="cryptoPrice"></p>
+
+<!-- Display DataFrame Section -->
+<div id="dataFrameSection">
+    <h2>Trending Cryptocurrencies</h2>
+    <table id="cryptoTable" class="table table-striped">
+        <thead>
+        <tr>
+            <th>Symbol</th>
+            <th>Name</th>            
+            <th>Price</th>
+            <th>Market Cap</th>
+            <th>Score</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for index, row in df.iterrows() %}
+        <tr>
+            <td>{{ row['symbol'] }}</td>
+            <td>{{ row['name'] }}</td>
+            <td>{{ row['price_usd'] }}</td>
+            <td>{{ row['market_cap_rank'] }}</td>
+            <td>{{ row['score'] }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- Display Reddit Comments Section as Styled Carousel with Custom Buttons -->
+<div id="redditCommentsSection" class="carousel slide" data-ride="carousel">
+    <h2 class="text-center mb-4">Reddit Comments</h2>
+    <div class="carousel-inner">
+        {% for _, comment in comments.iterrows() %}
+        <div class="carousel-item {% if loop.index == 1 %}active{% endif %}">
+            <div class="comment-content">
+                <p><strong>Actual Price:</strong> {{ comment['price_usd'] }}</p>
+                <p><strong>Author:</strong> {{ comment['Author'] }}</p>
+                <p><strong>Subreddit:</strong> {{ comment['Subreddit'] }}</p>
+                <p><strong>Keywords:</strong> {{ comment['Keywords'] }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='script/script.js') }}"></script>
+</body>
+</html>
