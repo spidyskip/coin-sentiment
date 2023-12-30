@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crypto Price Checker</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <!-- Add this to the head of your HTML file -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+
 </head>
 <body>
 
@@ -12,11 +16,24 @@
 
 <h1>Crypto Price Checker</h1>
 
-<label for="cryptoInput">Enter Coin Symbol:</label>
-<input type="text" id="cryptoInput" placeholder="e.g., bitcoin" />
-<button onclick="getCryptoPrice()">Get Price</button>
+<div id="cryptoSection">
+    <label for="cryptoInput">Enter Coin Symbol:</label>
+    <input type="text" id="cryptoInput" placeholder="e.g., bitcoin" />
+    <button onclick="getCryptoPrice()">Get Price</button>
+    <p id="cryptoPrice"></p>
+</div>
 
-<p id="cryptoPrice"></p>
+<div id="chartSection">
+    <!-- Button to trigger word cloud generation -->
+    <button id="generateWordCloudButton">Generate Word Cloud</button>
+    <button id="analyzeSentimentButton">Analyze Sentiment</button>
+    <div id="sentimentChart"></div>
+</div>
+
+<!-- Display Word Cloud Section -->
+<div id = "wordCloudSection">
+    <div id="wordCloudContainer"></div>
+</div>
 
 <!-- Display DataFrame Section -->
 <div id="dataFrameSection">

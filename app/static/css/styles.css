@@ -113,3 +113,11 @@ h2 {
 .carousel-control-next {
     right: 10px;
 }
+
+#cryptoSection, #chartSection {
+    margin-top: 20px; /* Adjust as needed */
+}
+
+#wordCloudSection {
+    margin-top: 20px; 
+}

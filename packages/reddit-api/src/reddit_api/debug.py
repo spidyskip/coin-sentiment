@@ -17,7 +17,7 @@ formatter = ColoredFormatter(
 stream = logging.StreamHandler()
 stream.setFormatter(formatter)
 
-logging.basicConfig(filename='logs/kpi.log', level=logging.INFO,
+logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s %(levelname)-1s : %(message)s',
                     datefmt='%Y/%m/%d %H:%M:%S'), logging.getLogger().addHandler(stream)
 

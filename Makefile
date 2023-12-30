@@ -10,5 +10,13 @@ format:
 
 lint:
 		pylint --disable=R,C main.py
+venv:
+		python3 -m venv ~/.venv | echo "Activate virtual env with 'source ~/.venv/bin/activate'"
 
-all: install lint test
+credentials:
+		./scripts/create_credentials.sh
+
+run:
+		./scripts/create_credentials.sh | echo "Fill empty fields in './scripts/create_credentials.sh'" | ./scripts/run.sh
+
+all: install format lint test
