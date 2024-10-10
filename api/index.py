@@ -62,7 +62,7 @@ def create_wordcloud():
     return send_file(word_cloud_image_path, mimetype='image/png')
 
 @app.route('/')
-def index():
+def home():
     # Get DataFrame
     df = get_crypto_data()
     comments = get_comments()
